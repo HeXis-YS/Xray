@@ -163,9 +163,12 @@ class TProxyService : VpnService() {
         }
 
         /** Exclude apps */
-        tun.addDisallowedApplication(applicationContext.packageName)
-        Settings.excludedApps.split("\n").forEach { packageName ->
-            if (packageName.trim().isNotEmpty()) tun.addDisallowedApplication(packageName)
+        if (Settings.excludedApps.isNotEmpty()) {
+            Settings.excludedApps.split("\n").forEach { packageName ->
+                if (packageName.trim().isNotEmpty()) tun.addAllowedApplication(packageName)
+            }
+        } else {
+            tun.addDisallowedApplication(applicationContext.packageName)
         }
 
         /** Build tun device */
