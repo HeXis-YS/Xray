@@ -13,23 +13,23 @@ object Settings {
     var socksPort: String = "10808"
     var socksUsername: String = ""
     var socksPassword: String = ""
-    var geoIpAddress: String = "https://github.com/v2fly/geoip/releases/latest/download/geoip.dat"
-    var geoSiteAddress: String = "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
-    var pingAddress: String = "https://developers.google.com"
+    var geoIpAddress: String = "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip-only-cn-private.dat"
+    var geoSiteAddress: String = "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+    var pingAddress: String = "https://google.com/generate_204"
     var pingTimeout: Int = 5
     var excludedApps: String = ""
     var bypassLan: Boolean = true
-    var enableIpV6: Boolean = true
+    var enableIpV6: Boolean = false
     var socksUdp: Boolean = true
 
     /** Advanced */
-    var primaryDns: String = "1.1.1.1"
-    var secondaryDns: String = "1.0.0.1"
-    var primaryDnsV6: String = "2606:4700:4700::1111"
-    var secondaryDnsV6: String = "2606:4700:4700::1001"
+    var primaryDns: String = "8.8.8.8"
+    var secondaryDns: String = "8.8.4.4"
+    var primaryDnsV6: String = "2001:4860:4860::8888"
+    var secondaryDnsV6: String = "2001:4860:4860::8844"
     var tunName: String = "tun0"
-    var tunMtu: Int = 8500
-    var tunAddress: String = "10.10.10.10"
+    var tunMtu: Int = 65535
+    var tunAddress: String = "172.30.0.0"
     var tunPrefix: Int = 32
     var tunAddressV6: String = "fc00::1"
     var tunPrefixV6: Int = 128
