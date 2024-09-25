@@ -22,3 +22,5 @@ gomobile bind -o "../app/libs/XrayCore.aar" -androidapi 26 -target "android/arm6
 popd
 
 ./gradlew -PabiId=2 -PabiTarget=arm64-v8a assembleRelease
+
+cp ./app/build/outputs/apk/release/app-arm64-v8a-release-unsigned.apk ./
