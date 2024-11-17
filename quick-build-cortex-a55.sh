@@ -2,7 +2,7 @@
 
 git submodule update --init --recursive
 
-XCFLAGS="-Wno-unused-command-line-argument -mcpu=cortex-a55+crypto+ssbs -mtune=cortex-a55 -Ofast -flto=full -fno-common -fno-plt -fno-semantic-interposition -fcf-protection=none -mllvm -polly -mllvm -polly-vectorizer=stripmine -mllvm -polly-ast-use-context -mllvm -polly-loopfusion-greedy -mllvm -polly-run-inliner -mllvm -polly-run-dce -fuse-ld=lld -s -Wl,-O3,--as-needed,--gc-sections,--icf=all,-z,lazy,-z,norelro,-sort-common"
+XCFLAGS="-Wno-unused-command-line-argument -mcpu=cortex-a55+crypto+ssbs -mtune=cortex-a55 -Ofast -flto=full -fno-common -fno-plt -fno-semantic-interposition -fno-stack-protector -fcf-protection=none -mllvm=-enable-ext-tsp-block-placement=1 -mllvm=-polly -mllvm=-polly-vectorizer=stripmine -mllvm=-polly-ast-use-context -mllvm=-polly-loopfusion-greedy -mllvm=-polly-run-inliner -mllvm=-polly-run-dce -fuse-ld=lld -s -Wl,-O2,--gc-sections,--icf=all,-z,lazy,-z,norelro,-sort-common"
 export CGO_CFLAGS="$XCFLAGS"
 export CGO_CXXFLAGS="$XCFLAGS"
 export CGO_LDFLAGS="$XCFLAGS"
