@@ -18,18 +18,18 @@ object Settings {
     var pingAddress: String = "https://google.com/generate_204"
     var pingTimeout: Int = 5
     var excludedApps: String = ""
-    var bypassLan: Boolean = true
+    var bypassLan: Boolean = false
     var enableIpV6: Boolean = false
     var socksUdp: Boolean = true
 
     /** Advanced */
-    var primaryDns: String = "8.8.8.8"
-    var secondaryDns: String = "8.8.4.4"
-    var primaryDnsV6: String = "2001:4860:4860::8888"
-    var secondaryDnsV6: String = "2001:4860:4860::8844"
+    var primaryDns: String = "1.1.1.1"
+    var secondaryDns: String = "1.0.0.1"
+    var primaryDnsV6: String = "2606:4700:4700::1111"
+    var secondaryDnsV6: String = "2606:4700:4700::1001"
     var tunName: String = "tun0"
     var tunMtu: Int = 65535
-    var tunAddress: String = "172.30.0.0"
+    var tunAddress: String = "192.0.0.8"
     var tunPrefix: Int = 32
     var tunAddressV6: String = "fc00::1"
     var tunPrefixV6: Int = 128
