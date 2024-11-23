@@ -15,6 +15,7 @@ export LDFLAGS="$XCFLAGS"
 
 pushd XrayCore
 go install golang.org/x/mobile/cmd/gomobile@latest
+export PATH=$(realpath ~/go/bin):$PATH
 # go mod tidy
 go mod download
 gomobile init
