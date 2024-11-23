@@ -193,6 +193,7 @@ class TProxyService : VpnService() {
             "tunnel:",
             "  name: $tunName",
             "  mtu: ${Settings.tunMtu}",
+            "  multi-queue: true",
             "socks5:",
             "  address: ${Settings.socksAddress}",
             "  port: ${Settings.socksPort}",
