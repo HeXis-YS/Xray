@@ -2,6 +2,8 @@
 
 git submodule update --init --recursive
 
+cp -v $(dirname $0)/lwipopts.h $(dirname $0)/app/src/main/jni/hev-socks5-tunnel/third-part/lwip/src/ports/include/lwipopts.h
+
 ANDROID_API="26"
 
 XFLAGS="-Wno-unused-command-line-argument "

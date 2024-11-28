@@ -17,6 +17,6 @@ APP_OPTIM := release
 APP_PLATFORM := android-29
 APP_ABI := armeabi-v7a arm64-v8a
 APP_CFLAGS := -O3 -DPKGNAME=io/github/saeeddev94/xray/service $(CFLAGS)
-APP_CPPFLAGS := -O3 -std=c++11
+APP_CPPFLAGS := -O3 -std=c++11 $(CFLAGS)
 NDK_TOOLCHAIN_VERSION := clang
-LOCAL_LDFLAGS += -Wl,--build-id=none -Wl,--hash-style=gnu $(LDFLAGS)
+APP_LDFLAGS += -Wl,--build-id=none -Wl,--hash-style=gnu $(LDFLAGS)
