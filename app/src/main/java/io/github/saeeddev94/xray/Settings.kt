@@ -13,8 +13,8 @@ object Settings {
     var socksPort: String = "10808"
     var socksUsername: String = ""
     var socksPassword: String = ""
-    var geoIpAddress: String = "https://ghp.ci/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geoip-only-cn-private-ipv4.dat"
-    var geoSiteAddress: String = "https://ghp.ci/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geosite-only-cn-private.dat"
+    var geoIpAddress: String = "https://ghgo.xyz/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geoip-only-cn-private-ipv4.dat"
+    var geoSiteAddress: String = "https://ghgo.xyz/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geosite-only-cn-private.dat"
     var pingAddress: String = "https://8.8.8.8/generate_204"
     var pingTimeout: Int = 5
     var excludedApps: String = ""
