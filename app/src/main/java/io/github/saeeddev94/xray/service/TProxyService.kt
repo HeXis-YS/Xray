@@ -197,6 +197,7 @@ class TProxyService : VpnService() {
             "socks5:",
             "  address: ${Settings.socksAddress}",
             "  port: ${Settings.socksPort}",
+            "  udp: udp",
             "misc:",
             "  log-level: error",
         )
