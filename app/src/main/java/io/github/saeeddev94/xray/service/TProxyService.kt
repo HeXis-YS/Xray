@@ -197,6 +197,8 @@ class TProxyService : VpnService() {
             "socks5:",
             "  address: ${Settings.socksAddress}",
             "  port: ${Settings.socksPort}",
+            "misc:",
+            "  log-level: error",
         )
         if (Settings.socksUsername.trim().isNotEmpty() && Settings.socksPassword.trim().isNotEmpty()) {
             tun2socksConfig.add("  username: ${Settings.socksUsername}")
