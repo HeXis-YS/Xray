@@ -1,6 +1,7 @@
 package io.github.saeeddev94.xray.activity
 
 import android.os.Bundle
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
