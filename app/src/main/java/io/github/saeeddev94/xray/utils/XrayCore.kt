@@ -13,7 +13,7 @@ object XrayCore {
 
     private fun decodeResponse(base64Response: String): CallResponse {
         val decodedResponse = Base64.getDecoder().decode(base64Response).decodeToString()
-        return Json.decodeFromString(decodedResponse)
+        return Json.decodeFromString<CallResponse>(decodedResponse)
     }
 
     fun test(dir: String, config: String): String {
