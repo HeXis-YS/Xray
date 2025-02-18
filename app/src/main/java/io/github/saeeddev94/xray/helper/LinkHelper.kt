@@ -1,5 +1,6 @@
 package io.github.saeeddev94.xray.helper
 
+import android.util.Base64
 import io.github.saeeddev94.xray.utils.XrayCore
 import io.github.saeeddev94.xray.Settings
 import org.json.JSONArray
