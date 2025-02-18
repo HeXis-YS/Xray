@@ -19,33 +19,32 @@ class XrayCore {
         return Json.decodeFromString(decodedResponse)
     }
 
-    private fun executeXrayOperation(base64Request: String, operation: (String) -> String): String {
-        val base64Response = if (base64Request.isNotEmpty) operation(base64Request) else operation()
-        val response = decodeResponse(base64Response)
+    fun test(dir: String, config: String): String {
+        val request = encodeRequest(TestXrayRequest(datDir = dir, configPath = config))
+        val response = decodeResponse(LibXray.testXray(request))
         return if (response.success) response.data else response.err
     }
 
-    fun test(dir: String, config: String): String {
-        val request = TestXrayRequest(datDir = dir, configPath = config)
-        return executeXrayOperation(encodeRequest(request), LibXray::testXray)
-    }
-
     fun start(dir: String, config: String, memory: Long): String {
-        val request = RunXrayRequest(datDir = dir, configPath = config, maxMemory = memory)
-        return executeXrayOperation(encodeRequest(request), LibXray::runXray)
+        val request = encodeRequest(RunXrayRequest(datDir = dir, configPath = config, maxMemory = memory))
+        val response = decodeResponse(LibXray.runXray(request))
+        return if (response.success) response.data else response.err
     }
 
     fun stop(): String {
-        return executeXrayOperation("", LibXray::stopXray)
+        val response = decodeResponse(LibXray.stopXray())
+        return if (response.success) response.data else response.err
     }
 
     fun version(): String {
-        return executeXrayOperation("", LibXray::xrayVersion)
+        val response = decodeResponse(LibXray.xrayVersion())
+        return if (response.success) response.data else response.err
     }
 
     fun json(link: String): String {
         val encodedLink = Base64.getEncoder().encodeToString(link.toByteArray())
-        return executeXrayOperation(encodedLink, LibXray::convertShareLinksToXrayJson)
+        val response = decodeResponse(LibXray.convertShareLinksToXrayJson(encodedLink))
+        return if (response.success) response.data else response.err
     }
 
 }
