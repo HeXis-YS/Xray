@@ -17,7 +17,7 @@ export CGO_CFLAGS="$XFLAGS"
 export CGO_CXXFLAGS="$XFLAGS"
 export CGO_LDFLAGS="$XFLAGS"
 export CGO_ENABLED=0
-export GOEXPERIMENT=newinliner
+# export GOEXPERIMENT=newinliner
 export GOARM=7
 
 export CFLAGS="$XFLAGS"
@@ -25,13 +25,13 @@ export LDFLAGS="$XFLAGS"
 
 export JAVA_HOME="$JAVA_HOME_21_X64"
 
-pushd XrayCore
+pushd XrayCore/libXray
 go install golang.org/x/mobile/cmd/gomobile@latest
 export PATH="$(realpath ~/go/bin):$PATH"
 # go mod tidy
 go mod download
 gomobile init
-gomobile bind -o "../app/libs/XrayCore.aar" -androidapi $ANDROID_API -target "android/arm" -gcflags=all="-B" -ldflags="-s -w -buildid=" -trimpath
+gomobile bind -o "../../app/libs/XrayCore.aar" -androidapi $ANDROID_API -target "android/arm" -gcflags=all="-B" -ldflags="-s -w -buildid=" -trimpath
 popd
 
 ./gradlew -PabiId=1 -PabiTarget=armeabi-v7a assembleRelease
