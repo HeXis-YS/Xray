@@ -26,6 +26,11 @@ class LinkHelper(link: String) {
             val name = uri.fragment ?: ""
             return name.ifEmpty { REMARK_DEFAULT }
         }
+
+        fun decodeBase64(value: String): String {
+            val byteArray = Base64.decode(value, Base64.DEFAULT)
+            return String(byteArray)
+        }        
     }
 
     fun isValid(): Boolean {
