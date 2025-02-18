@@ -4,6 +4,7 @@ import libXray.LibXray
 import java.util.Base64
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
+import io.github.saeeddev94.xray.utils.CallResponse
 import io.github.saeeddev94.xray.utils.RunXrayRequest
 import io.github.saeeddev94.xray.utils.TestXrayRequest
 
