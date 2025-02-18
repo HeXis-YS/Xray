@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class CallResponse(
-    val success: Boolean,
-    val data: String,
-    val err: String
+    val success: Boolean = false,
+    val data: String = "",
+    val err: String = ""
 )
