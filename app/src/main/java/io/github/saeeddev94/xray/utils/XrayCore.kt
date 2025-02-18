@@ -22,7 +22,7 @@ object XrayCore {
         return if (response.success) response.data else response.err
     }
 
-    fun start(dir: String, config: String, memory: Long): String {
+    fun start(dir: String, config: String): String {
         val request = encodeRequest(XrayRequest(datDir = dir, configPath = config))
         val response = decodeResponse(LibXray.runXray(request))
         return if (response.success) response.data else response.err
