@@ -1,7 +1,6 @@
 package io.github.saeeddev94.xray.helper
 
-import XrayCore.XrayCore
-import android.util.Base64
+import io.github.saeeddev94.xray.utils.XrayCore
 import io.github.saeeddev94.xray.Settings
 import org.json.JSONArray
 import org.json.JSONException
@@ -10,17 +9,13 @@ import java.net.URI
 
 class LinkHelper(link: String) {
 
-    private val success: Boolean
     private val outbound: JSONObject?
     private var remark: String = REMARK_DEFAULT
 
     init {
-        val base64: String = XrayCore.json(link)
-        val decoded = decodeBase64(base64)
-        val response = try { JSONObject(decoded) } catch (error: JSONException) { JSONObject() }
-        val data = response.optJSONObject("data") ?: JSONObject()
+        val decoded: String = XrayCore.json(link)
+        val data = try { JSONObject(decoded) } catch (error: JSONException) { JSONObject() }
         val outbounds = data.optJSONArray("outbounds") ?: JSONArray()
-        success = response.optBoolean("success", false)
         outbound = if (outbounds.length() > 0) outbounds[0] as JSONObject else null
     }
 
@@ -31,15 +26,10 @@ class LinkHelper(link: String) {
             val name = uri.fragment ?: ""
             return name.ifEmpty { REMARK_DEFAULT }
         }
-
-        fun decodeBase64(value: String): String {
-            val byteArray = Base64.decode(value, Base64.DEFAULT)
-            return String(byteArray)
-        }
     }
 
     fun isValid(): Boolean {
-        return success && outbound != null
+        return outbound != null
     }
 
     fun json(): String {

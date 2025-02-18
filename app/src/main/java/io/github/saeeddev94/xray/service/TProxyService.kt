@@ -18,7 +18,7 @@ import io.github.saeeddev94.xray.Settings
 import io.github.saeeddev94.xray.activity.MainActivity
 import io.github.saeeddev94.xray.database.Profile
 import io.github.saeeddev94.xray.helper.FileHelper
-import XrayCore.XrayCore
+import io.github.saeeddev94.xray.utils.XrayCore
 import android.content.Context
 import android.util.Log
 import io.github.saeeddev94.xray.Xray

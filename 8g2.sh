@@ -33,13 +33,13 @@ export LDFLAGS="$XFLAGS"
 
 export JAVA_HOME="$JAVA_HOME_21_X64"
 
-pushd XrayCore
+pushd XrayCore/libXray
 go install golang.org/x/mobile/cmd/gomobile@latest
 export PATH="$(realpath ~/go/bin):$PATH"
 # go mod tidy
 go mod download
 gomobile init
-gomobile bind -o "../app/libs/XrayCore.aar" -androidapi $ANDROID_API -target "android/arm64" -gcflags=all="-B" -ldflags="-s -w -buildid= -linkmode=external -extld=$CC" -trimpath
+gomobile bind -o "../../app/libs/XrayCore.aar" -androidapi $ANDROID_API -target "android/arm64" -gcflags=all="-B" -ldflags="-s -w -buildid= -linkmode=external -extld=$CC" -trimpath
 popd
 
 ./gradlew -PabiId=2 -PabiTarget=arm64-v8a assembleRelease
