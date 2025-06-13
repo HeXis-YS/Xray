@@ -46,13 +46,13 @@ class Settings(private val context: Context) {
     var geoIpAddress: String
         get() = sharedPreferences.getString(
             "geoIpAddress",
-            "https://github.com/v2fly/geoip/releases/latest/download/geoip.dat"
+            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geoip-only-cn-private-ipv4.dat"
         )!!
         set(value) = sharedPreferences.edit { putString("geoIpAddress", value) }
     var geoSiteAddress: String
         get() = sharedPreferences.getString(
             "geoSiteAddress",
-            "https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat"
+            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geosite-only-cn-private.dat"
         )!!
         set(value) = sharedPreferences.edit { putString("geoSiteAddress", value) }
     var pingAddress: String
@@ -62,10 +62,10 @@ class Settings(private val context: Context) {
         get() = sharedPreferences.getInt("pingTimeout", 5)
         set(value) = sharedPreferences.edit { putInt("pingTimeout", value) }
     var bypassLan: Boolean
-        get() = sharedPreferences.getBoolean("bypassLan", true)
+        get() = sharedPreferences.getBoolean("bypassLan", false)
         set(value) = sharedPreferences.edit { putBoolean("bypassLan", value) }
     var enableIpV6: Boolean
-        get() = sharedPreferences.getBoolean("enableIpV6", true)
+        get() = sharedPreferences.getBoolean("enableIpV6", false)
         set(value) = sharedPreferences.edit { putBoolean("enableIpV6", value) }
     var socksUdp: Boolean
         get() = sharedPreferences.getBoolean("socksUdp", true)
@@ -94,10 +94,10 @@ class Settings(private val context: Context) {
         get() = sharedPreferences.getString("tunName", "tun0")!!
         set(value) = sharedPreferences.edit { putString("tunName", value) }
     var tunMtu: Int
-        get() = sharedPreferences.getInt("tunMtu", 8500)
+        get() = sharedPreferences.getInt("tunMtu", 65535)
         set(value) = sharedPreferences.edit { putInt("tunMtu", value) }
     var tunAddress: String
-        get() = sharedPreferences.getString("tunAddress", "10.10.10.10")!!
+        get() = sharedPreferences.getString("tunAddress", "192.0.0.8")!!
         set(value) = sharedPreferences.edit { putString("tunAddress", value) }
     var tunPrefix: Int
         get() = sharedPreferences.getInt("tunPrefix", 32)
