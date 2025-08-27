@@ -4,6 +4,13 @@ git submodule update --init --recursive
 
 cp -v $(dirname $0)/lwipopts.h $(dirname $0)/app/src/main/jni/hev-socks5-tunnel/third-part/lwip/src/ports/include/lwipopts.h
 
+if [ ! -d go/bin ]; then
+    GO_LATEST=$(curl https://go.dev/dl/?mode=json | jq -r .[0].version)
+    wget -O go.tar.gz "https://go.dev/dl/${GO_LATEST}.linux-amd64.tar.gz"
+    tar -xf go.tar.gz
+fi
+export PATH="$(pwd)/go/bin:$PATH"
+
 ANDROID_API="26"
 CROSS_COMPILE="aarch64-linux-android$ANDROID_API-"
 CC="$ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/${CROSS_COMPILE}clang"
