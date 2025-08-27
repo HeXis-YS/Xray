@@ -6,8 +6,7 @@ cp -v $(dirname $0)/lwipopts.h $(dirname $0)/app/src/main/jni/hev-socks5-tunnel/
 
 if [ ! -d go/bin ]; then
     GO_LATEST=$(curl https://go.dev/dl/?mode=json | jq -r .[0].version)
-    wget -O go.tar.gz "https://go.dev/dl/${GO_LATEST}.linux-amd64.tar.gz"
-    tar -xf go.tar.gz
+    wget -qO- "https://go.dev/dl/${GO_LATEST}.linux-amd64.tar.gz" | tar -xzf-
 fi
 export PATH="$(pwd)/go/bin:$PATH"
 
