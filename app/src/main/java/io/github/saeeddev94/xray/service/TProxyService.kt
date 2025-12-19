@@ -263,7 +263,7 @@ class TProxyService : VpnService() {
                 "socks5:",
                 "  address: ${settings.socksAddress}",
                 "  port: ${settings.socksPort}",
-                "  pipeline: false",
+                "  pipeline: true",
             )
             if (
                 settings.socksUsername.trim().isNotEmpty() &&
