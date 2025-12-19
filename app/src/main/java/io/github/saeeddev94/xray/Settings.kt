@@ -64,13 +64,13 @@ class Settings(private val context: Context) {
     var geoIpAddress: String
         get() = sharedPreferences.getString(
             "geoIpAddress",
-            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geoip-only-cn-private-ipv4.dat"
+            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geoip-client.dat"
         )!!
         set(value) = sharedPreferences.edit { putString("geoIpAddress", value) }
     var geoSiteAddress: String
         get() = sharedPreferences.getString(
             "geoSiteAddress",
-            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geosite-only-cn-private.dat"
+            "https://ghfast.top/https://github.com/HeXis-YS/xray-geodata-cut/releases/download/rolling/geosite-client.dat"
         )!!
         set(value) = sharedPreferences.edit { putString("geoSiteAddress", value) }
     var pingAddress: String
@@ -83,7 +83,7 @@ class Settings(private val context: Context) {
         get() = sharedPreferences.getInt("refreshLinksInterval", 60)
         set(value) = sharedPreferences.edit { putInt("refreshLinksInterval", value) }
     var bypassLan: Boolean
-        get() = sharedPreferences.getBoolean("bypassLan", false)
+        get() = sharedPreferences.getBoolean("bypassLan", true)
         set(value) = sharedPreferences.edit { putBoolean("bypassLan", value) }
     var enableIpV6: Boolean
         get() = sharedPreferences.getBoolean("enableIpV6", false)
