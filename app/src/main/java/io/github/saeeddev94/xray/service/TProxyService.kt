@@ -9,6 +9,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.IpPrefix
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
@@ -229,7 +230,7 @@ class TProxyService : VpnService() {
             if (settings.bypassLan) {
                 settings.tunRoutes.forEach {
                     val address = it.split('/')
-                    tun.excludeRoute(new IpPrefix(InetAddress.getByName(address[0]), address[1].toInt()))
+                    tun.excludeRoute(IpPrefix(InetAddress.getByName(address[0]), address[1].toInt()))
                 }
             }
 
