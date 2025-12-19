@@ -229,7 +229,7 @@ class TProxyService : VpnService() {
             if (settings.bypassLan) {
                 settings.tunRoutes.forEach {
                     val address = it.split('/')
-                    tun.excludeRoute(address[0], address[1].toInt())
+                    tun.excludeRoute(new IpPrefix(InetAddress.getByName(address[0]), address[1].toInt()))
                 }
             }
 
