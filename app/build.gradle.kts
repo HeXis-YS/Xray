@@ -63,21 +63,6 @@ android {
         includeInApk = false
         includeInBundle = false
     }
-
-    signingConfigs {
-        create("release") {
-            storeFile = file("/tmp/xray.jks")
-            storePassword = System.getenv("KS_PASSWORD")
-            keyAlias = System.getenv("KEY_ALIAS")
-            keyPassword = System.getenv("KEY_PASSWORD")
-        }
-    }
-
-    buildTypes {
-        release {
-            signingConfig = signingConfigs.getByName("release")
-        }
-    }
 }
 
 dependencies {
