@@ -6,7 +6,7 @@ cp -v $(dirname $0)/lwipopts.h $(dirname $0)/app/src/main/jni/hev-socks5-tunnel/
 
 if [ ! -d go/bin ]; then
     GO_LATEST=$(curl https://go.dev/dl/?mode=json | jq -r .[0].version)
-    wget -qO- "https://go.dev/dl/${GO_LATEST}.linux-amd64.tar.gz" | tar -xzf-
+    curl -fsSL "https://go.dev/dl/${GO_LATEST}.linux-amd64.tar.gz" | tar -xzf-
 fi
 export PATH="$(pwd)/go/bin:$PATH"
 
@@ -16,7 +16,7 @@ CC="$ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/${CROSS_C
 LD="$ANDROID_NDK_LATEST_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin/ld.lld"
 
 XCFLAGS+="-mcpu=cortex-x3+crypto+sha3+nosve -mtune=cortex-a510 "
-XCFLAGS+="-Ofast -flto=full -fno-plt -fno-stack-protector "
+XCFLAGS+="-O3 -ffast-math -flto=full -fno-plt -fno-stack-protector "
 
 pushd elfhack/inject
 $CC -c -DANDROID -DRELRHACK $XCFLAGS -o aarch64-android.o aarch64-android.c
@@ -29,7 +29,9 @@ export CGO_CFLAGS="$XCFLAGS"
 export CGO_CXXFLAGS="$XCFLAGS"
 export CGO_LDFLAGS="$XLDFLAGS"
 export CGO_ENABLED=0
-export GOARM64=v9.0,lse,crypto
+export GOARM64="v9.0,lse,crypto"
+
+export GOEXPERIMENT="greenteagc"
 
 export CFLAGS="$XCFLAGS"
 export LDFLAGS="$XLDFLAGS"
